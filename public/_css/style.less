@@ -1,0 +1,92 @@
+@cor: blue;
+@cor2: red;
+@cor3: green;
+@tamanho: 20px;
+@width: 0.75;
+
+
+//mixin => bloco de propriedades
+.drop-shadow(){
+    text-shadow: 2px 1px 1px #ccc;
+    text-decoration: underline;
+    font-size: 40px;
+}
+
+//mixin
+.drop-shadow1(@color: darkgreen, @backgroundColor: rgb(139,74,125)){
+    //if
+    & when (@color = ''){
+        color: rgb(165,33,0);
+    } else {
+        color: @color;
+    }
+    text-shadow: 2px 1px 1px #ccc;
+    text-decoration: underline;
+    background-color: @backgroundColor;
+}
+
+body{
+    background-color: rgb(210,212,208);
+    width: percentage(@width);
+    margin-left: 10%;
+}
+
+
+
+h1{
+    .drop-shadow();
+    color: @cor2;
+    text-decoration: none;
+}
+
+h2{
+    .drop-shadow1('', #fff);
+}
+
+p{
+    color: @cor;
+    b{
+        color: @cor2;
+    }
+}
+
+ol{
+    color: @cor;
+    ul{
+        color: @cor3;
+    }
+}
+
+//isso serve para quando o mixin esta recebendo a cor por parametro
+//independente a cor, eu estou escurecendo
+//Obs: dependendo da cor não vai haver diferença, porque já esta no valor limite
+b{
+    color: @cor2 - rgb(50,50,50);
+}
+
+//id
+#div-1{
+    font-size: @tamanho;
+    color: @cor3;
+}
+//id
+#div-2{
+    font-size: @tamanho;
+    color: @cor3;
+}
+//id
+#div-3{
+    font-size: @tamanho + 10;
+    color: @cor3 * 1.8;
+}
+
+//a mesma configuração para todos os estados
+a.button:link, a.button:visited, a{
+    background-color: #968988;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    width: 15%;
+}

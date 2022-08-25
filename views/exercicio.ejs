@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet/less" type="text/css" href="./_css/style.less" />
+    <title>Exercício</title>
+</head>
+<body>
+    <h1>Aprendendo a desenvolver com NodeJs e Less</h1>
+    
+    <img src="./images/node.png" width="100" />
+    </br>
+    <img src="./images/less.png" width="100" />
+
+    <h2>Exemplo de uso do Less</h2>
+    <a href="/">Home</a>
+    <a href="/historia">História</a>
+
+    <p><b>Exercício</b> Desenvolver um site usando os itens abaixo:</p>
+    <ol>
+        <li>Pode usar uma pagina como base criando uma copia</li>
+        <li>Usar NodeJs</li>
+        <li>Caso tenha CSS, pode converte-lo para less</li>
+        <li>
+            Itens obrigadorios
+            <ul>
+                <li>Usar variaveis</li>
+                <li>Usar funções</li>
+                <li>Usar cálculos</li>
+                <li>Usar hierarquias</li>
+            </ul>
+        </li>
+    </ol>
+
+    <p><b>Upload</b> Faça o upload da sua atividade!</p>
+    <form method="post" enctype="multipart/form-data" action="/upload">
+        <input type="file" name="file">
+        <input type="submit" value="upload">
+    </form>
+    
+    <!-- LINHA DE CODIGO para fazer o pre-processamento de less para css-->
+    <script src="https://cdn.jsdelivr.net/npm/less" ></script>
+    <script>
+        /*tag para mostrar se esta em produção ou ambiente de desenvolvimento*/
+        less = { env: 'production' }; /*pode ser production - se for development mostrar erros no console*/
+    </script>
+</body>
+</html>
