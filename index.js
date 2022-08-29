@@ -3,10 +3,14 @@ const express = require('express');
 const app = express();
 const multer = require("multer"); //importando o multer
 const path = require("path"); // importar um modulo nativo do node para pegar a extensão do arquivo
+var favicon = require('serve-favicon');//importando o favicon
 
 //configuração da biblioteca de exibição HTML
+app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.set('view engine', 'ejs');//nesse caso a nossa engine é a ejs
-app.use(express.static('public'));
+
+
 
 //--------------------------------------------------------------
 //função para manipular o arquivo depois que fez o upload 
@@ -24,6 +28,8 @@ const storage = multer.diskStorage({
 // objeto que vai receber o arquivo
 const upload = multer({storage});
 //--------------------------------------------------------------
+
+
 
 // rota principal (pagina less)
 app.get('/', function(req,res){
@@ -44,6 +50,8 @@ app.get('/exercicio', function(req,res){
 app.post("/upload", upload.single("file"), function(req, res){
     res.send("Arquivo recebido!");
 });
+
+//--------------------------------------------------------------
 
 //iniciando o servidor
 app.listen(3001, function(){
